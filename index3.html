@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .light{
+            display: none;
+        }
+
+        .verde {
+            background-color: green;
+        }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <h2 id="titolo1"><code>ciao </code>paragrafo 1</h2>
+    <p id="paragrafo1" class="light" data-val="23">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur
+      vitae in quis totam non odit ratione accusantium ea, nostrum pariatur est
+      quas amet, consequuntur, iusto sunt voluptate obcaecati aliquam dolores.
+    </p>
+    <h2>paragrafo 2</h2>
+    <p id="paragrafo2">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur
+      vitae in quis totam non odit ratione accusantium ea, nostrum pariatur est
+      quas amet, consequuntur, iusto sunt voluptate obcaecati aliquam dolores.
+    </p>
+    <h2>paragrafo 3</h2>
+    <p id="paragrafo3">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur
+      vitae in quis totam non odit ratione accusantium ea, nostrum pariatur est
+      quas amet, consequuntur, iusto sunt voluptate obcaecati aliquam dolores.
+    </p>
+    <ul class="">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <span class="light">ciao</span>
+    <a href="#">link</a>
+    <input type="text" placeholder="inserisci testo" value="2" name="" id="input1">
+    <button>clicca</button>
+
+    <script>
+    $(document).ready(function () {
+        $('button').click(function(){
+            //TRAVERSING, muoversi nel DOM
+            console.log($("ul").parent()); //body
+            console.log($("ul").parents()); //body html
+            console.log($("code").parentsUntil()); //h2 body html
+            console.log($("body").children());
+            console.log($("ul").find("li")); //trovare li figli di ul
+            //console.log($("ul#prova").find("li"));
+            console.log($("body").siblings()); //fratelli
+            //console.log($("#paragrafo1").next());
+            //console.log($("#paragrafo1").prev());
+            //console.log($("#paragrafo1").nextAll());
+            //console.log($("#paragrafo1").prevAll());
+            //console.log($("li").first());
+        });
+    });
+    </script>
+  </body>
+</html>

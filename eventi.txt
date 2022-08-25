@@ -1,0 +1,52 @@
+<script>
+    $(document).ready(function () {
+        //EVENTI mouse = [click, dbclick, mouseeneter, mouseleave]
+        //EVENTI tastiera = [keypress, keydown, keyup]
+        //EVENTI form = [submit, change, focus, blur]
+        //EVENTI document = [load, resize, scroll, unload]
+        $("button").click(function(){
+            alert('ciao'); //posso cliccare anche sui testi
+        });
+        $("h2").hover(function(){
+            //houver sostituisce mouseneter e leave
+            //alert('sei entrato nel titolo');
+        }, 
+            function(){
+                //alert("sei uscito dal titolo");
+            });
+        //var input = $("input");
+        $("input").focus(function(){
+            //this riprende input
+            $(this).css("background-color", "#cccccc");
+        });
+        $("input").blur(function(){
+            //cliccare fuori dall'input, prima bisogna cliccare dentro
+            $(this).css("background-color", "#aaaaaa");
+        });
+        //on è un evento generico e specifico dentro, mi permette di scrivere una sola volta p.
+        //evito di fare $("p").click(function(){$(this)....}) p.mouseenter p.mouseleave
+        var p = $("p");
+        p.on({
+            mouseenter: function(){
+                $(this).css("background-color", "lightgrey");
+            },
+            mouseleave: function() {
+                $(this).css("background-color", "lightblue");
+            },
+            click: function() {
+                $(this).css("background-color", "yellow");
+            },
+        })
+        //EFFETTI CON EVENTI
+        //c'è anche animate
+        $("button").click(function(){
+            //$("p").show(); //c'è un'animazione, non è immediato, mostra il p nascosto
+            //$("p").fadeIn(); //si parte da un'elemento che non c'è e lo mostra
+            //$("p").fadeOut(); //si parte da un'elemento che c'è e lo nasconde
+            //$("p").fadeToggle(); //scompare quello presente e appare quello nascosto
+            //$("p").slideUp(); //p scompaiono andando in alto
+            //$("p").slideDown(); //p appaiono andando in basso
+            $("p").slideToggle(); //p appaiono andando in basso, p scompaioni andando in alto
+        });
+    });
+</script>

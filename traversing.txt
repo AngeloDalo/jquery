@@ -1,0 +1,19 @@
+<script>
+    $(document).ready(function () {
+        $('button').click(function(){
+            //TRAVERSING, muoversi nel DOM
+            console.log($("ul").parent()); //body
+            console.log($("ul").parents()); //body html
+            console.log($("code").parentsUntil()); //h2 body html
+            console.log($("body").children());
+            console.log($("ul").find("li")); //trovare li figli di ul
+            //console.log($("ul#prova").find("li"));
+            console.log($("body").siblings()); //fratelli
+            //console.log($("#paragrafo1").next());
+            //console.log($("#paragrafo1").prev());
+            //console.log($("#paragrafo1").nextAll());
+            //console.log($("#paragrafo1").prevAll());
+            //console.log($("li").first());
+        });
+    });
+</script>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .light{
+            display: none;
+        }
+
+        .verde {
+            background-color: green;
+        }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <h2 id="titolo1"><code>ciao </code>paragrafo 1</h2>
+    <p id="paragrafo1" class="light" data-val="23">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur
+      vitae in quis totam non odit ratione accusantium ea, nostrum pariatur est
+      quas amet, consequuntur, iusto sunt voluptate obcaecati aliquam dolores.
+    </p>
+    <h2>paragrafo 2</h2>
+    <p id="paragrafo2">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur
+      vitae in quis totam non odit ratione accusantium ea, nostrum pariatur est
+      quas amet, consequuntur, iusto sunt voluptate obcaecati aliquam dolores.
+    </p>
+    <h2>paragrafo 3</h2>
+    <p id="paragrafo3">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur
+      vitae in quis totam non odit ratione accusantium ea, nostrum pariatur est
+      quas amet, consequuntur, iusto sunt voluptate obcaecati aliquam dolores.
+    </p>
+    <ul class="">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <span class="light">ciao</span>
+    <a href="#">link</a>
+    <input type="text" placeholder="inserisci testo" value="2" name="" id="input1">
+    <button>clicca</button>
+    <button id="lista">lista</button>
+    <button id="add">add</button>
+    <button id="callback">clicca</button>
+    <button id="catena">clicca catena</button>
+
+    <script>
+    $(document).ready(function () {
+        //DOM
+        $('#callback').click(function(){
+            console.log($('#titolo1').text()); //ciaoparagrafo 1
+            console.log($('#titolo1').html()); //<code>ciao</code>paragrafo 1
+            console.log($('#input1').val()); //2
+            console.log($('#paragrafo1').attr('data-val')); //23
+            $("#titolo1").text("testo cambiato");
+            //$("#titolo1").html("<code>Testo cambiato</code>");
+            $("input1").value(3);
+        });
+
+        //ADD HTML
+        $('#add').click(function(){
+            //append() prepend() after() before()
+            //BEFORE<h2 id="titolo1">PREPEND<code>ciao </code>APPENDparagrafo 1</h2>AFTER
+            $("code").append("code cambiato "); //ciao code cambiato paragrafo 1
+            //$("code").prepend("code cambiato "); //code cambiato ciao paragrafo 1
+            //$("code").after("code cambiato "); //fuori dal code
+            //$("code").before("code cambiato "); //fuori dal code
+        });
+
+        //RIMUOVERE
+        let verdeClass = 'verde';
+        $('#lista').click(function(){
+            //$("ul").remove(); //rimuove tutta la lista
+            //$("ul").empty(); //non riumuove ul ma solo l'interno, posso mettere anche $("ul").html("");
+            
+            //$("ul").addClass(verdeClass);
+            //$("ul").removeClass(verdeClass);
+            //$("ul").toggleClass(verdeClass);
+            //$("ul").css("background-color", "#cccccc");
+            $("ul").css({"background-color": "#cccccc", "border": "solid 10px blue"});
+        });
+    });
+    </script>
+  </body>
+</html>

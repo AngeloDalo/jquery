@@ -1,0 +1,37 @@
+<script>
+    $(document).ready(function () {
+        //DOM
+        $('#callback').click(function(){
+            console.log($('#titolo1').text()); //ciaoparagrafo 1
+            console.log($('#titolo1').html()); //<code>ciao</code>paragrafo 1
+            console.log($('#input1').val()); //2
+            console.log($('#paragrafo1').attr('data-val')); //23
+            $("#titolo1").text("testo cambiato");
+            //$("#titolo1").html("<code>Testo cambiato</code>");
+            $("input1").value(3);
+        });
+
+        //ADD HTML
+        $('#add').click(function(){
+            //append() prepend() after() before()
+            //BEFORE<h2 id="titolo1">PREPEND<code>ciao </code>APPENDparagrafo 1</h2>AFTER
+            $("code").append("code cambiato "); //ciao code cambiato paragrafo 1
+            //$("code").prepend("code cambiato "); //code cambiato ciao paragrafo 1
+            //$("code").after("code cambiato "); //fuori dal code
+            //$("code").before("code cambiato "); //fuori dal code
+        });
+
+        //RIMUOVERE
+        let verdeClass = 'verde';
+        $('#lista').click(function(){
+            //$("ul").remove(); //rimuove tutta la lista
+            //$("ul").empty(); //non riumuove ul ma solo l'interno, posso mettere anche $("ul").html("");
+            
+            //$("ul").addClass(verdeClass);
+            //$("ul").removeClass(verdeClass);
+            //$("ul").toggleClass(verdeClass);
+            //$("ul").css("background-color", "#cccccc");
+            $("ul").css({"background-color": "#cccccc", "border": "solid 10px blue"});
+        });
+    });
+</script>

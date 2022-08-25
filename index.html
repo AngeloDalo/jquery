@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .light{
+            display: none;
+        }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>paragrafo 1</h2>
+    <p id="paragrafo1" class="light">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur
+      vitae in quis totam non odit ratione accusantium ea, nostrum pariatur est
+      quas amet, consequuntur, iusto sunt voluptate obcaecati aliquam dolores.
+    </p>
+    <h2>paragrafo 2</h2>
+    <p id="paragrafo2">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur
+      vitae in quis totam non odit ratione accusantium ea, nostrum pariatur est
+      quas amet, consequuntur, iusto sunt voluptate obcaecati aliquam dolores.
+    </p>
+    <h2>paragrafo 3</h2>
+    <p id="paragrafo3">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur
+      vitae in quis totam non odit ratione accusantium ea, nostrum pariatur est
+      quas amet, consequuntur, iusto sunt voluptate obcaecati aliquam dolores.
+    </p>
+    <span class="light">ciao</span>
+    <a href="#">link</a>
+    <input type="text" placeholder="inserisci testo" name="" id="">
+    <button id="callback">clicca</button>
+    <button id="catena">clicca catena</button>
+
+    <script>
+      $(document).ready(function () {
+        // jQuery methods go here...
+        //SELETTORE
+        //$('p').hide(); //quando la pagina carica nascondi i paragrafi
+        $('#paragrafo1').hide(); //nasconde paragrafo1
+        $('.light').hide(); //nasconde elemento con classe light
+        $('span#light').hide(); //nasconde span con id light
+        //$('span.light').hide(); //nasconde span con classe light
+        $("[href='#']").hide(); //tutto ciò che ha attributo href, posso anche non mettere '#'
+
+        //EVENTI mouse = [click, dbclick, mouseeneter, mouseleave]
+        //EVENTI tastiera = [keypress, keydown, keyup]
+        //EVENTI form = [submit, change, focus, blur]
+        //EVENTI document = [load, resize, scroll, unload]
+        // $("button").click(function(){
+        //     alert('ciao'); //posso cliccare anche sui testi
+        // });
+        //sostituisce mouseneter e mouseleave
+        $("h2").hover(function(){
+            //alert('sei entrato nel titolo');
+        }, 
+        function(){
+            //alert("sei uscito dal titolo");
+        });
+        $("input").focus(function(){
+            //this riprende input
+            $(this).css("background-color", "#cccccc");
+        });
+        $("input").blur(function(){
+            //cliccare fuori dall'input, prima bisogna cliccare dentro
+            $(this).css("background-color", "#aaaaaa");
+        });
+        //on è un evento generico e specifico dentro, mi permette di scrivere una sola volta p.
+        //evito di fare $("p").click(function(){$(this)....}) p.mouseenter p.mouseleave
+        var p = $("p");
+        p.on({
+            mouseenter: function(){
+                $(this).css("background-color", "lightgrey");
+            },
+            mouseleave: function() {
+                $(this).css("background-color", "lightblue");
+            },
+            click: function() {
+                $(this).css("background-color", "yellow");
+            },
+        })
+        //EFFETTI CON EVENTI
+        //c'è anche animate
+        $("button").click(function(){
+            //$("p").show(); //c'è un'animazione, non è immediato, mostra il p nascosto
+            //$("p").fadeIn(); //si parte da un'elemento che non c'è e lo mostra
+            //$("p").fadeOut(); //si parte da un'elemento che c'è e lo nasconde
+            //$("p").fadeToggle(); //scompare quello presente e appare quello nascosto
+            //$("p").slideUp(); //p scompaiono andando in alto
+            //$("p").slideDown(); //p appaiono andando in basso
+            //$("p").slideToggle(); //p appaiono andando in basso, p scompaioni andando in alto
+        });
+
+        //CALLBACK
+        //funzione che viene eseguita al completamento di un'operazione
+        $("#callback").click(function(){
+            $("#paragrafo3").hide("slow", function(){
+                alert("the paragraph is now hidden");
+            });
+        });
+
+        //CHAINING
+        $("#catena").click(function(){
+            $("#paragrafo2").css("color", "red").slideUp(2000).slideDown(2000);
+        });
+
+    });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<script>
+    $(document).ready(function () {
+        // jQuery methods go here...
+        //SELETTORE
+        //$('p').hide(); //quando la pagina carica nascondi i paragrafi
+        $('#paragrafo1').hide(); //nasconde paragrafo1
+        $('.light').hide(); //nasconde elemento con classe light
+        $('span#light').hide(); //nasconde span con classe light
+        //$('span.light').hide(); //nasconde span con id light
+        $("[href='#']").hide(); //tutto ciò che ha attributo href, posso anche non mettere '#'
+    });
+</script>

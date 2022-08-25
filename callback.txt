@@ -1,0 +1,11 @@
+    <script>
+      $(document).ready(function () {
+        //CALLBACK
+        //funzione che viene eseguita al completamento di un'operazione
+        $("button").click(function(){
+            $("#paragrafo3").hide("slow", function(){
+                alert("the paragraph is now hidden");
+            });
+        });
+    });
+    </script>
